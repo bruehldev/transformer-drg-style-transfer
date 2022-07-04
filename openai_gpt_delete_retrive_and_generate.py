@@ -92,7 +92,7 @@ def main():
 
     # This loading functions also add new tokens and embeddings called `special tokens`
     # These new embeddings will be fine-tuned on the RocStories dataset
-    special_tokens = ['<ATTR_WORDS>','<CON_START>','<START>','<END>']
+    special_tokens = ['<ATTR_WORDS>','<CON_START>','<REPLACE>','<START>','<END>']
     tokenizer = OpenAIGPTTokenizer.from_pretrained(args.model_name, special_tokens=special_tokens)
     start_token_id = tokenizer.convert_tokens_to_ids(['<START>'])[0]
     model = OpenAIGPTLMHeadModel.from_pretrained(args.model_name, num_special_tokens=len(special_tokens))
